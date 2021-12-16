@@ -1,16 +1,6 @@
-# Welcome to your Jupyter Book
+# Tutorials
 
-This is a small sample book to give you a feel for how book content is
-structured.
+In this GitHub repository/Jupyter book, I include some notes about
+1. Creating a Jupyter book
+2. Creating a Julia package
 
-:::{note}
-Here is a note!
-:::
-
-And here is a code block:
-
-```
-e = mc^2
-```
-
-Check out the content pages bundled with this sample book to see more.
