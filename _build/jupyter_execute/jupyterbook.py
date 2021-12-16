@@ -3,7 +3,7 @@
 
 # # Creating a Jupyter book
 
-# In this section, I cover briefly how to create (and publish) a jupyter book.
+# In this section, I cover briefly how to create (and publish) a jupyter book. These notes are based on the excellent introduction available here https://jupyterbook.org/start/your-first-book.html. 
 
 # ## Installing Python
 # The easiest way to install Python is to download Anaconda or Miniconda. 
@@ -28,7 +28,7 @@
 # 2. Create a public repository for the book, for example "mynewbook"
 # 3. Install GitHub desktop (useful to sync changes made to the book) and clone the book repository.
 # 
-# ## Create the book
+# ## Creating the book
 # 1. Open Anaconda Prompt and activate an environment containing python 3.7
 # 2. Install Jupyter book
 # ```
@@ -41,5 +41,11 @@
 # This will create an example book with a basic structure that we can then edit to our liking. 
 # 
 # 4. Locate the book files that have just been created and move them to the GitHub repository. We can now edit these files (that is, write the book) and push any changes to the main branch of our Github repository.
+# 
+# ## Building the book in HTML format
+# To build the book (in an environment with python 3.7), we run
+# ```
+# jupyter-book build path_to_book
+# ```
 # 
 # 

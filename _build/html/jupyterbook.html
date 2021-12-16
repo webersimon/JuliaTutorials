@@ -51,7 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+    <link rel="prev" title="Tutorials" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -91,7 +91,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Welcome to your Jupyter Book
+   Tutorials
   </a>
  </li>
 </ul>
@@ -204,8 +204,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-the-book">
-   Create the book
+  <a class="reference internal nav-link" href="#creating-the-book">
+   Creating the book
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-the-book-in-html-format">
+   Building the book in HTML format
   </a>
  </li>
 </ul>
@@ -221,7 +226,7 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="creating-a-jupyter-book">
 <h1>Creating a Jupyter book<a class="headerlink" href="#creating-a-jupyter-book" title="Permalink to this headline">¶</a></h1>
-<p>In this section, I cover briefly how to create (and publish) a jupyter book.</p>
+<p>In this section, I cover briefly how to create (and publish) a jupyter book. These notes are based on the excellent introduction available here <a class="reference external" href="https://jupyterbook.org/start/your-first-book.html">https://jupyterbook.org/start/your-first-book.html</a>.</p>
 <div class="section" id="installing-python">
 <h2>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this headline">¶</a></h2>
 <p>The easiest way to install Python is to download Anaconda or Miniconda.</p>
@@ -250,8 +255,8 @@ To activate this envrionment, we open the Anaconda Prompt and type</p>
 <li><p>Install GitHub desktop (useful to sync changes made to the book) and clone the book repository.</p></li>
 </ol>
 </div>
-<div class="section" id="create-the-book">
-<h2>Create the book<a class="headerlink" href="#create-the-book" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="creating-the-book">
+<h2>Creating the book<a class="headerlink" href="#creating-the-book" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Open Anaconda Prompt and activate an environment containing python 3.7</p></li>
 <li><p>Install Jupyter book</p></li>
@@ -269,6 +274,13 @@ To activate this envrionment, we open the Anaconda Prompt and type</p>
 <ol class="simple">
 <li><p>Locate the book files that have just been created and move them to the GitHub repository. We can now edit these files (that is, write the book) and push any changes to the main branch of our Github repository.</p></li>
 </ol>
+</div>
+<div class="section" id="building-the-book-in-html-format">
+<h2>Building the book in HTML format<a class="headerlink" href="#building-the-book-in-html-format" title="Permalink to this headline">¶</a></h2>
+<p>To build the book (in an environment with python 3.7), we run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">build</span> <span class="n">path_to_book</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -301,7 +313,7 @@ To activate this envrionment, we open the Anaconda Prompt and type</p>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Welcome to your Jupyter Book</p>
+            <p class="prev-next-title">Tutorials</p>
         </div>
     </a>
 </div>
