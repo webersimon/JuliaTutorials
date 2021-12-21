@@ -219,6 +219,11 @@
    Building the book in HTML format
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#publishing-the-book-on-github">
+   Publishing the book on GitHub
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -287,6 +292,15 @@ To activate this envrionment, we open the Anaconda Prompt and type</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">build</span> <span class="n">path_to_book</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="publishing-the-book-on-github">
+<h2>Publishing the book on GitHub<a class="headerlink" href="#publishing-the-book-on-github" title="Permalink to this headline">¶</a></h2>
+<p>There are several ways to proceed but one of the simplest is</p>
+<ol class="simple">
+<li><p>Create a /docs/ folder in the main branch of the repository. Add a file called “.nojekyll”.</p></li>
+<li><p>Copy the content of the _build/html/ folder to the /docs/ folder, and commit the changes to the main branch</p></li>
+<li><p>On the GitHub website, go to the repository page, then Settings &gt; Pages and in Source select the branch “main” and the folder “docs”. The website should take a few minutes to build</p></li>
+</ol>
 </div>
 </div>
 

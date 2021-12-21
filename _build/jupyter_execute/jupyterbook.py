@@ -48,4 +48,10 @@
 # jupyter-book build path_to_book
 # ```
 # 
+# ## Publishing the book on GitHub
+# There are several ways to proceed but one of the simplest is
+# 1. Create a /docs/ folder in the main branch of the repository. Add a file called ".nojekyll".
+# 2. Copy the content of the _build/html/ folder to the /docs/ folder, and commit the changes to the main branch
+# 3. On the GitHub website, go to the repository page, then Settings > Pages and in Source select the branch "main" and the folder "docs". The website should take a few minutes to build
+# 
 # 

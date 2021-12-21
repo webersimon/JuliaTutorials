@@ -188,6 +188,44 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-github-repository-for-the-package">
+   Creating a GitHub repository for the package
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-julia">
+   Installing Julia
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-the-package">
+   Creating the package
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#editing-the-package">
+   Editing the package
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-the-package">
+   Installing the package
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-dependencies">
+   Adding dependencies
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -198,7 +236,76 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="creating-a-julia-package">
 <h1>Creating a Julia package<a class="headerlink" href="#creating-a-julia-package" title="Permalink to this headline">¶</a></h1>
-<p>In this section, I cover briefly how to create a Julia package.</p>
+<p>In this section, I cover briefly how to create a Julia package (along with using GitHub). These notes are based on the Pkg package documentation (<a class="reference external" href="https://pkgdocs.julialang.org/v1/">https://pkgdocs.julialang.org/v1/</a>).</p>
+<div class="section" id="creating-a-github-repository-for-the-package">
+<h2>Creating a GitHub repository for the package<a class="headerlink" href="#creating-a-github-repository-for-the-package" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Create an account on GitHub</p></li>
+<li><p>Create a public or private repository for the package, for example “example”</p></li>
+<li><p>Install GitHub desktop (useful to sync changes made to the book) and clone the package repository.</p></li>
+</ol>
+</div>
+<div class="section" id="installing-julia">
+<h2>Installing Julia<a class="headerlink" href="#installing-julia" title="Permalink to this headline">¶</a></h2>
+<p>Julia can downloaded at <a class="reference external" href="https://julialang.org/">https://julialang.org/</a>. A good IDE for Julia is Visual Studio Code (<a class="reference external" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>)</p>
+</div>
+<div class="section" id="creating-the-package">
+<h2>Creating the package<a class="headerlink" href="#creating-the-package" title="Permalink to this headline">¶</a></h2>
+<p>In the Julia terminal, type “]” to enter the Pkg REPL. To create the package “example”, type</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">generate</span> <span class="n">example</span>
+</pre></div>
+</div>
+<p>Locate the folder “example” and copy the files (a “Project.toml” file which contain some useful information about the package such as the name, ID, dependencies, etc and a “src” folder that contains a Julia file “example.jl”) to the GitHub repository.</p>
+</div>
+<div class="section" id="editing-the-package">
+<h2>Editing the package<a class="headerlink" href="#editing-the-package" title="Permalink to this headline">¶</a></h2>
+<p>We can now edit the “example.jl” file and add the following to it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">example</span>
+
+<span class="n">fun</span><span class="p">()</span> <span class="o">=</span> <span class="n">println</span><span class="p">(</span><span class="s2">&quot;This is the example package!&quot;</span><span class="p">)</span>
+
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-the-package">
+<h2>Installing the package<a class="headerlink" href="#installing-the-package" title="Permalink to this headline">¶</a></h2>
+<p>Once the package files have been edited, we need to commit any changes to the main branch of the GitHub repository. To install the package, type</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">using</span> <span class="n">Pkg</span>
+<span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;path_to_package&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>alternatively</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">using</span> <span class="n">Pkg</span>
+<span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;url_to_package&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once the package is installed</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">using</span> <span class="n">example</span>
+<span class="n">example</span><span class="o">.</span><span class="n">fun</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>should produce “This is the example package!”.</p>
+</div>
+<div class="section" id="adding-dependencies">
+<h2>Adding dependencies<a class="headerlink" href="#adding-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Let’s add the following function in our example.jl main file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Dates</span>
+<span class="n">funtime</span><span class="p">()</span> <span class="o">=</span> <span class="n">println</span><span class="p">(</span><span class="n">Dates</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>The function “now()” will print the date and is part of the package “Dates”. To add Dates as a dependency to the example package, enter the Pkh REPL and type</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">activate</span> <span class="n">path_to_package</span>
+<span class="n">add</span> <span class="n">Dates</span>
+</pre></div>
+</div>
+<p>Commit all changes and reinstall the package with Pkg (we may need to restart Julia first). Then</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">using</span> <span class="n">example</span>
+<span class="n">example</span><span class="o">.</span><span class="n">funtime</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>should produce the current date and time.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
