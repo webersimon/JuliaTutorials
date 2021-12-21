@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Creating a Jupyter book &#8212; Tutorials</title>
+    <title>Creating a Julia package &#8212; Tutorials</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,8 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Creating a Julia package" href="juliapackages.html" />
-    <link rel="prev" title="Introduction" href="intro.html" />
+    <link rel="prev" title="Creating a Jupyter book" href="jupyterbook.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -97,13 +96,13 @@
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="jupyterbook.html">
    Creating a Jupyter book
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="juliapackages.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Creating a Julia package
   </a>
  </li>
@@ -148,7 +147,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/jupyterbook.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/juliapackages.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -168,7 +167,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fjupyterbook.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fjuliapackages.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -189,39 +188,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installing-python">
-   Installing Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#switching-to-python-3-7">
-   Switching to Python 3.7
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creating-a-github-repository-for-the-book">
-   Creating a GitHub repository for the book
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creating-the-book">
-   Creating the book
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#building-the-book-in-html-format">
-   Building the book in HTML format
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -230,64 +196,9 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="creating-a-jupyter-book">
-<h1>Creating a Jupyter book<a class="headerlink" href="#creating-a-jupyter-book" title="Permalink to this headline">¶</a></h1>
-<p>In this section, I cover briefly how to create (and publish) a jupyter book. These notes are based on the excellent introduction available here <a class="reference external" href="https://jupyterbook.org/start/your-first-book.html">https://jupyterbook.org/start/your-first-book.html</a>.</p>
-<div class="section" id="installing-python">
-<h2>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this headline">¶</a></h2>
-<p>The easiest way to install Python is to download Anaconda or Miniconda.</p>
-</div>
-<div class="section" id="switching-to-python-3-7">
-<h2>Switching to Python 3.7<a class="headerlink" href="#switching-to-python-3-7" title="Permalink to this headline">¶</a></h2>
-<p>Unfortunately, there are issues when building a jupyter book when using more recent versions of python. To avoid this, we will use an older version of Python (python 3.7). To easily switch between versions of python, we will create a specific environment which will contain python 3.7. To do this, we open the Anaconda Prompt and type</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">python37</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.7</span>
-</pre></div>
-</div>
-<p>where “python37” is the name we give to that environment (could be anything).
-To activate this envrionment, we open the Anaconda Prompt and type</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">activate</span> <span class="n">python37</span>
-</pre></div>
-</div>
-<p>and to check the version of python being used</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">V</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="creating-a-github-repository-for-the-book">
-<h2>Creating a GitHub repository for the book<a class="headerlink" href="#creating-a-github-repository-for-the-book" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p>Create an account on GitHub</p></li>
-<li><p>Create a public repository for the book, for example “mynewbook”</p></li>
-<li><p>Install GitHub desktop (useful to sync changes made to the book) and clone the book repository.</p></li>
-</ol>
-</div>
-<div class="section" id="creating-the-book">
-<h2>Creating the book<a class="headerlink" href="#creating-the-book" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p>Open Anaconda Prompt and activate an environment containing python 3.7</p></li>
-<li><p>Install Jupyter book</p></li>
-</ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">book</span>
-</pre></div>
-</div>
-<ol class="simple">
-<li><p>Create the book</p></li>
-</ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">create</span> <span class="n">mynewbook</span><span class="o">/</span>
-</pre></div>
-</div>
-<p>This will create an example book with a basic structure that we can then edit to our liking.</p>
-<ol class="simple">
-<li><p>Locate the book files that have just been created and move them to the GitHub repository. We can now edit these files (that is, write the book) and push any changes to the main branch of our Github repository.</p></li>
-</ol>
-</div>
-<div class="section" id="building-the-book-in-html-format">
-<h2>Building the book in HTML format<a class="headerlink" href="#building-the-book-in-html-format" title="Permalink to this headline">¶</a></h2>
-<p>To build the book (in an environment with python 3.7), we run</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">build</span> <span class="n">path_to_book</span>
-</pre></div>
-</div>
-</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="creating-a-julia-package">
+<h1>Creating a Julia package<a class="headerlink" href="#creating-a-julia-package" title="Permalink to this headline">¶</a></h1>
+<p>In this section, I cover briefly how to create a Julia package.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -315,19 +226,12 @@ To activate this envrionment, we open the Anaconda Prompt and type</p>
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="jupyterbook.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Introduction</p>
+            <p class="prev-next-title">Creating a Jupyter book</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="juliapackages.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Creating a Julia package</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
         
