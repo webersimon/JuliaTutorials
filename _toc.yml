@@ -4,6 +4,7 @@
 format: jb-book
 root: intro
 chapters:
+- file: juliaintroduction
 - file: jupyterbook
 - file: juliapackages
-- file: juliaintroduction
+
